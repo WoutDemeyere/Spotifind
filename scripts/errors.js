@@ -13,7 +13,6 @@ const showErrorArtistNotFound = function (name) {
 
     document.querySelector('.js-error-ok').addEventListener('click', function(){
         errors.classList.remove('c-error-show')
-        errors.innerHTML = '';
     })
 }
 
@@ -31,7 +30,6 @@ const showErrorCitiesNotFound = function () {
 
     document.querySelector('.js-error-ok').addEventListener('click', function(){
         errors.classList.remove('c-error-show')
-        errors.innerHTML = '';
     })
 }
 
@@ -49,6 +47,5 @@ const showErrorNoOriginFound = function () {
 
     document.querySelector('.js-error-ok').addEventListener('click', function(){
         errors.classList.remove('c-error-show')
-        errors.innerHTML = '';
     })
 }

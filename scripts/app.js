@@ -14,6 +14,8 @@ function mapp(x, in_min, in_max, out_min, out_max) {
 }
 
 const getData = async function (spot_id) {
+  ring.classList.add('c-loading-ring');
+
   artist_data = null;
   artist_data = await fetch(
       // `https://spotifind-woutdem.azurewebsites.net/api/detail?id=${spot_id}`
@@ -27,16 +29,31 @@ const getData = async function (spot_id) {
     .catch((err) => console.error("An error occurd", err));
 
   console.log(artist_data);
-  if (artist_data != null) {
+  
+  if (artist_data != undefined) {
+    console.log('AINT NILL')
     if (!artist_data['origin-found']) showErrorNoOriginFound();
     if (city_layer) city_layer.clearLayers();
 
+    ring.classList.remove('c-loading-ring');
+    toggleSearch()
+    search.value = '';
     drawCities();
   }
+}
 
+function toggleSearch() {
+  i++;
+  search_main.addEventListener('click', toggleSearch);
+  document.querySelector('.js-main').classList.toggle('c-search__collapse');
+  if (i == 2) {
+      i = 0;
+      search_main.removeEventListener('click', toggleSearch);
+  }
 }
 
 const drawCities = function () {
+  console.log('hellooooo')
   highest = artist_data.cities[0].listeners;
   lowest = artist_data.cities[49].listeners;
   city_layer = L.layerGroup()

@@ -20,6 +20,8 @@
     --global-transitionTiming-alpha-f: cubic-bezier(0.420, 0.000, 0.580, 1.000);
     /* --global-transitionTiming-alpha-x:  500ms ease-out; */
 
+    /* fonts */
+    --global-font-size: 100%;
 
     /* search */
     --search-display: block;
@@ -35,7 +37,7 @@
     /* error */
     --err-main-width: 35%;
     --err-margin: calc(50% - var(--err-main-width)/2);
-    --err-margin-top: -600px;
+    --err-top: -600px;
     --err-button-width: 30%;
     --global-baseline: 5px;
     --err-display: block;
@@ -70,11 +72,10 @@
 */
 
 html {
-    font-size: 16px;
+    font-size: var(--global-font-size);
     line-height: 1.5;
     font-family: "HK Grotesk Web", Helvetica, arial, sans-serif;
     color: #202024;
-    /* color: #FFF; */
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -93,8 +94,7 @@ body {
 
 @media (min-width: 768px) {
     html {
-        font-size: 20px;
-        line-height: 1.6;
+        --global-font-size: 125%;
     }
 }
 
@@ -291,7 +291,7 @@ canvas {
 } */
 
 .c-error-show {
-    --err-margin-top: 200px;
+    --err-top: 200px;
     --err-display: block;
 }
 
@@ -300,14 +300,14 @@ canvas {
     position: absolute;
     z-index: 11;
     margin-left: var(--err-margin);
-    margin-top: var(--err-margin-top);
+    transform: translateY(var(--err-top));
     width: var(--err-main-width);
     border-radius: 5px;
     border: 1px solid var(--border-color);
     background-color: #202024;
     color: white;
     padding: 16px;
-    transition: all 0.5s var(--global-transitionTiming-alpha);
+    transition: all 1s var(--global-transitionTiming-alpha);
 }
 
 .c-error-header {
@@ -324,11 +324,8 @@ canvas {
     margin: calc(var(--global-baseline)*2);
     margin-left: 70%;
     color: #fff;
-    /* line-height: calc(var(--global-baseline) * 3); */
     padding: calc(var(--global-baseline) * 1.5 - var(--border-width));
-    
     outline: none;
-    box-shadow: var(--button-boxShadow, 0);
     transition: all  0.2s var(--global-transitionTiming-alpha);
 }
 
@@ -421,7 +418,7 @@ canvas {
     Search box
 */
 
-.c-search__collapse-hover {
+.c-search__collapse:hover {
     --search-background-color: var(--border-color);
     --icon-fill: var(--global-background-color);
 }
