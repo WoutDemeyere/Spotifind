@@ -22,16 +22,13 @@ const getData = async function (spot_id) {
       `http://127.0.0.1:5000/api/v1/detail/${spot_id}`
     )
     .then(function (r) {
-      console.log(r)
       if (r.status == 404) showErrorCitiesNotFound();
       else return r.json();
     })
     .catch((err) => console.error("An error occurd", err));
 
-  console.log(artist_data);
   
   if (artist_data != undefined) {
-    console.log('AINT NILL')
     if (!artist_data['origin-found']) showErrorNoOriginFound();
     if (city_layer) city_layer.clearLayers();
 
@@ -53,7 +50,6 @@ function toggleSearch() {
 }
 
 const drawCities = function () {
-  console.log('hellooooo')
   highest = artist_data.cities[0].listeners;
   lowest = artist_data.cities[49].listeners;
   city_layer = L.layerGroup()
@@ -62,7 +58,6 @@ const drawCities = function () {
 
   for (let data of artist_data.cities) {
     size = mapp(data.listeners, lowest, highest, 1, 20);
-    // console.log(size)
     if (data.geo.lon) {
       var city = L.circleMarker([data.geo.lat, data.geo.lon], {
         color: '#1DB954',

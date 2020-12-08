@@ -7,31 +7,25 @@ const listenToSearch = function () {
 }
 
 const searchArtist = async function () {
-    console.log(search.value.substring(0, 15))
     if (search.value.substring(0, 15) != "spotify:artist:") {
         ring.classList.add('c-loading-ring');
         found_artists = await fetch(
-                // `https://spotifind-woutdem.azurewebsites.net/api/artists?name=${search.value}`
-                // `http://localhost:7071/api/artists?name=${search.value}`
-                `http://127.0.0.1:5000/api/v1/artist/${search.value}`
+                `https://spotifind-woutdem.azurewebsites.net/api/artists?name=${search.value}`
+                // `http://127.0.0.1:5000/api/v1/artist/${search.value}`
             )
             .then(function (r) {
-                console.log(r)
                 if (r.status == 404) showErrorArtistNotFound();
                 else return r.json();
             })
             .catch((err) => console.error("An error occurd", err));
 
-        console.log(found_artists);
         if (found_artists != undefined) {
             ring.classList.remove('c-loading-ring');
             showArtists()
-            //console.log(found_artists);
         }
 
     } else {
-        var id = search.value.substring(15, search.value.length)
-        console.log(id)
+        var id = search.value.substring(15, search.value.length);        
         getData(id);
         search.value = '';
     }
@@ -44,7 +38,6 @@ const showArtists = function () {
     for (var i = 0; i < found_artists.length; i++) {
         url = '';
         artist = found_artists[i];
-        console.log(i)
         if (artist.img) {
             url = artist.img.url;
         }
