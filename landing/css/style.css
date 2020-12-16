@@ -16,6 +16,8 @@
     /* --border-color: #1DB954; */
     --border-color: #B3B3B3;
 
+    
+
 
     /* inputs */
     --input-background-color: white;
@@ -47,6 +49,12 @@
 @media (min-width: 1280px) {
     :root {
         --global-font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 1280px) {
+    :root {
+        --global-font-size: 0.8rem;
     }
 }
 
@@ -91,7 +99,7 @@ body {
  */
 
 ::selection {
-    background: #5051DB;
+    background: #15e95f;
     color: white;
     text-shadow: none;
 }
@@ -308,6 +316,18 @@ canvas {
     }
 }
 
+@media (min-width: 576px) and (max-width: 1280px) {
+    .c-info-text {
+        font-size:  calc(var(--global-font-size) * 1.5);
+        padding: 0 calc(var(--global-whitespace-xxl) * 2);
+    }
+
+    .c-info-intro {
+        font-size:  calc(var(--global-font-size) * 2.5);
+        padding: 0 calc(var(--global-whitespace-lg) * 4.5);
+    }
+}
+
 .c-form-field--floating {
     position: relative;
 }
@@ -381,7 +401,7 @@ canvas {
     appearance: none;
     max-width: 90px;
     border: none;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0) !important;
     color: white;
     font-size: calc(var(--global-font-size) * 1.25);
     line-height: var(--global-whitespace);
@@ -409,6 +429,17 @@ canvas {
 
     .c-input {
         max-width: 300px;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 1280px) {
+    .c-button {
+        max-width: 190px;
+    }
+
+    .c-input {
+        max-width: 260px;
     }
 }
 
