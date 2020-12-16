@@ -2,61 +2,71 @@
 <html lang="en">
 
 <head>
-  <title>Spotifind</title>
+    <title>Spotifind</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="manifest" href="favicons/site.webmanifest">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config" content="favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 
-  <script src="scripts/search.js"></script>
-  <script src="scripts/errors.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="scripts/search.js"></script>
+    <script src="scripts/errors.js"></script>
 </head>
 
 <body>
-  <div class="c-app js-app">
-    <div class="o-row">
-      <div class="js-main c-search-main">
-        <div class="c-bar-container">
-          <svg xmlns="http://www.w3.org/2000/svg" class="js-icon c-search-icon" viewBox="0 0 20 20">
-            <path
-              d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-          </svg>
-          <input type="text" placeholder="Search for an artist..." class="js-search c-search">
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" class="js-icon-enter c-enter-icon" viewBox="0 0 20 20">
+    <div class="c-app js-app">
+        <div class="o-row">
+            <div class="js-main c-search-main">
+                <div class="c-bar-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="js-icon c-search-icon" viewBox="0 0 20 20">
+                        <path
+                            d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                    </svg>
+                    <input type="text" placeholder="Search for an artist..." class="js-search c-search">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="js-icon-enter c-enter-icon" viewBox="0 0 20 20">
             <polygon points="16.172 9 10.101 2.929 11.515 1.515 20 10 19.293 10.707 11.515 18.485 10.101 17.071 16.172 11 0 11 0 9"/>
           </svg> -->
-          <div class="c-loading-ring-container">
-            <div class="js-loading-ring">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+                    <div class="c-loading-ring-container">
+                        <div class="js-loading-ring">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="js-filter-container c-filter-container">
+                </div>
             </div>
-          </div>
         </div>
 
-        <div class="js-filter-container c-filter-container">
+        <div class="c-error js-errors">
         </div>
-      </div>
+
+
+        <div class="c-city-container js-city-container">
+        </div>
+
+        <div id='map' class='c-map'></div>
     </div>
-
-    <div class="c-error js-errors">
-    </div>
-
-
-    <div class="c-city-container js-city-container">
-    </div>
-
-    <div id='map' class='c-map'></div>
-  </div>
-  <script src="scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
 
 
 </body>

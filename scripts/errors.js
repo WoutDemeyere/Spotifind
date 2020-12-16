@@ -19,7 +19,7 @@ const showErrorArtistNotFound = function (name) {
 const showErrorCitiesNotFound = function () {
     console.log('logging error')
     ring.classList.remove('c-loading-ring')
-    let errHeader = 'No cities found for this artist :o'
+    let errHeader = 'No cities found for this artist'
     let errBody = `It appears that the given artist has no city data available. Some smaller artist have no city data or it is just missing. If you are certain that there is data for this artist please let me know, then there is probably a bug in my backend :)`
 
     let htmlSring = `<h1 class="c-error-header">${errHeader}</h1>

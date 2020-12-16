@@ -1,0 +1,473 @@
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+:root {
+    /* colors */
+
+    --global-color-neutral: #B3B3B3;
+    --global-color-neutral-light: #b3b3b38f;
+    --global-background-color: #121212;
+    --global-color-neutral-dark: #535353;
+
+    --global-html-color: var(--global-color-neutral);
+    --global-background-color: linear-gradient(180deg, rgba(29, 185, 84, 1) 0%, rgba(28, 168, 77, 1) 34.96%, rgba(26, 138, 65, 1) 78.27%, rgba(26, 138, 65, 1) 100%, rgba(23, 91, 46, 1) 100%, rgba(17, 17, 17, 1) 100%);
+
+
+    /* --border-color: #1DB954; */
+    --border-color: #B3B3B3;
+
+
+    /* inputs */
+    --input-background-color: white;
+    --button-background-color: #0DB949;
+    --button-background-color-hover: #21bb4f8c;
+
+    /* fonts */
+    --global-font-size: 0.7rem;
+
+    /* transitions */
+    --global-transitionTiming-alpha: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    --global-transitionTiming-alpha-f: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    /* --global-transitionTiming-alpha-x:  500ms ease-out; */
+
+
+    /* whitespace */
+    --global-baseline: 4px;
+    --global-whitespace: calc(var(--global-baseline) * 3);
+    /* = 24px */
+
+    --global-whitespace-xs: calc(var(--global-baseline) * .5);
+    --global-whitespace-sm: calc(var(--global-baseline) * 1);
+    --global-whitespace-md: calc(var(--global-baseline) * 2);
+    --global-whitespace-lg: calc(var(--global-baseline) * 3);
+    --global-whitespace-xl: calc(var(--global-whitespace) * 4);
+    --global-whitespace-xxl: calc(var(--global-whitespace) * 5);
+}
+
+@media (min-width: 1280px) {
+    :root {
+        --global-font-size: 0.9rem;
+    }
+}
+
+/*------------------------------------*\
+  #GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+    font-size: var(--global-font-size);
+    line-height: 1.5;
+    font-family: 'Montserrat', Helvetica, arial, sans-serif;
+    color: white;
+    background: var(--global-background-color);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::selection {
+    background: #5051DB;
+    color: white;
+    text-shadow: none;
+}
+
+/*------------------------------------*\
+  #Elements
+\*------------------------------------*/
+
+/*
+    Elements: Images
+    ---
+    Default markup for images to make them responsive
+*/
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+    font-weight: 200;
+}
+
+h1 {
+    /* font-size: 96px; */
+    font-size: calc(var(--global-font-size) * 6);
+    line-height: calc(var(--global-font-size) * 7.25);
+    font-weight: 500;
+    margin: 0 0 24px;
+}
+
+h2 {
+    font-size: calc(var(--global-font-size) * 2);
+    line-height: calc(var(--global-font-size) * 2.5);
+    margin: 0 0 24px;
+}
+
+h3 {
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+    margin: 0 0 24px;
+}
+
+ul,
+ol {
+    padding-left: 24px;
+}
+
+li ul,
+li ol {
+    margin-bottom: 0;
+}
+
+blockquote {
+    font-style: normal;
+    font-size: 23px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+blockquote * {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+figcaption {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 8px;
+    color: #3C3C42;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: LightGrey;
+    margin: 0 0 24px;
+}
+
+a {
+    color: #5051DB;
+    transition: all .1s ease-in-out;
+}
+
+a:visited,
+a:active {
+    color: #3E3EA8;
+}
+
+a:hover,
+a:focus {
+    color: #3E3EA8;
+}
+
+canvas {
+    display: block;
+}
+
+*:focus {
+    outline: 0;
+}
+
+.o-button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+.c-page {
+    display: grid;
+    grid-template-rows: 40% auto;
+}
+
+.c-info-container {
+    /* background-color: rgb(104, 79, 79); */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 1280px) {
+    .c-page {
+        grid-template-columns: 60% auto; 
+    }
+
+    .c-info-container {
+        height: 100vh;
+    }
+}
+
+.c-info-header {
+    margin-bottom: var(--global-whitespace-md);
+}
+
+.c-info-intro {
+    font-size: calc(var(--global-font-size) * 2.625);
+    line-height: calc(var(--global-font-size) * 3.25);
+    font-weight: 400;
+    min-width: 80%;
+    text-align: center;
+    margin: var(--global-whitespace-lg) 0;
+    padding: 0 var(--global-whitespace-lg);
+}
+
+.c-info-text {
+    font-size:  calc(var(--global-font-size) * 2);
+    line-height: calc(var(--global-font-size) * 2.5);
+    font-weight: 300;
+    min-width: 70%;
+    text-align: center;
+    padding: 0 calc(var(--global-whitespace-lg) * 2);
+    margin-top: var(--global-whitespace-md);
+}
+
+@media (min-width: 1280px) {
+    .c-info-text {
+        font-size:  calc(var(--global-font-size) * 1.5);
+        padding: 0 calc(var(--global-whitespace-xxl) * 2);
+    }
+
+    .c-info-intro {
+        font-size:  calc(var(--global-font-size) * 2.5);
+        padding: 0 calc(var(--global-whitespace-lg) * 2);
+    }
+}
+
+.c-form-field--floating {
+    position: relative;
+}
+
+/*
+    Component: Forms
+    ---
+    Everything form related here
+*/
+
+.c-form-header {
+    font-size: calc(var(--global-font-size) * 2);
+    font-weight: 500;
+    margin-top: var(--global-whitespace-md) !important;
+    margin-bottom: 0 !important;
+}
+
+.c-sign-up-form {
+    margin-top: var(--global-whitespace) !important;
+    width: 60%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.c-form-field {
+    margin: 0 !important;
+    padding: calc(var(--global-font-size) * 0.625) calc(var(--global-font-size) * 1.25);
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+}
+
+.c-form-field--floating {
+    position: relative;
+}
+
+.has-error {
+    border: 1px solid crimson;
+}
+
+.c-sign-up-form {
+    margin-top: 40px;
+}
+
+.c-label {
+    margin-bottom: 0;
+    padding-bottom: calc(var(--global-whitespace-md));
+    font-size: calc(var(--global-font-size) * 1.1245);
+    line-height: calc(var(--global-font-size) * 1.25);
+    color: white;
+    opacity: 100%;
+    transition: opacity 0.2s var(--global-transitionTiming-alpha);
+}
+
+.c-label--floating {
+    z-index: 12;
+    position: absolute;
+    /* padding: 0px 0px; */
+    transform: translateY(4px);
+    transition: transform 200ms ease-in-out;
+}
+
+.is-filled {
+    opacity: 0%;
+}
+
+.c-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    max-width: 90px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    font-size: calc(var(--global-font-size) * 1.25);
+    line-height: var(--global-whitespace);
+    outline: none;
+}
+
+.c-button {
+    margin-left: 40px;
+    font-size: calc(var(--global-font-size) * 1.25);
+    padding: calc(var(--global-font-size) * 0.9) calc(var(--global-font-size) *1.25);
+    border-radius: 25px;
+    background-color: var(--button-background-color);
+    max-width: 80px;
+}
+
+@media (min-width: 1280px) {
+    .c-form-header {
+        font-size: calc(var(--global-font-size) * 1.5);
+        margin-top: var(--global-whitespace-xl) !important;
+    }
+
+    .c-button {
+        max-width: 210px;
+    }
+
+    .c-input {
+        max-width: 300px;
+    }
+}
+
+.c-button:hover {
+    background-color: var(--button-background-color-hover);
+}
+
+/*
+    Component: Mockup
+    ---
+    Everything for the mockup
+*/
+
+.c-mockup {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    background-image: url(ID_DEMO.gif);
+    background-position: center;
+}
+
+@media (min-width: 1280px) {
+    .c-mockup {
+        height: 100vh;
+    }
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+*/
+

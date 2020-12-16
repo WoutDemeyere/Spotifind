@@ -1,4 +1,3 @@
-// mapboxgl.accessToken = 'pk.eyJ1Ijoid29kMDEiLCJhIjoiY2o1dmloY2lvMDI4MTMycGh2d3lsZG4xMSJ9.Z0afj3yoC2i_KDtfDFNZqQ';
 const lanIP = `${window.location.hostname}:5000`;
 
 var mymap = 0;
@@ -18,8 +17,8 @@ const getData = async function (spot_id) {
 
   artist_data = null;
   artist_data = await fetch(
-      // `https://spotifind-woutdem.azurewebsites.net/api/detail?id=${spot_id}`
-      `http://127.0.0.1:5000/api/v1/detail/${spot_id}`
+      `https://spotifind-woutdem.azurewebsites.net/api/detail?id=${spot_id}`
+      // `http://127.0.0.1:5000/api/v1/detail/${spot_id}`
     )
     .then(function (r) {
       if (r.status == 404) showErrorCitiesNotFound();
@@ -114,18 +113,16 @@ const setupMap = function () {
 
 
   L.tileLayer('https://api.mapbox.com/styles/v1/wod01/ckgl18cn8297p19o8qb2db4wv/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoid29kMDEiLCJhIjoiY2o1dmloY2lvMDI4MTMycGh2d3lsZG4xMSJ9.Z0afj3yoC2i_KDtfDFNZqQ', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 12,
     minZoom: 2,
-    //id: 'mapbox://styles/wod01/ckgl18cn8297p19o8qb2db4wv',
     tileSize: 512,
     zoomOffset: -1,
-    //accessToken: 'pk.eyJ1Ijoid29kMDEiLCJhIjoiY2o1dmloY2lvMDI4MTMycGh2d3lsZG4xMSJ9.Z0afj3yoC2i_KDtfDFNZqQ' //'pk.eyJ1Ijoid29kMDEiLCJhIjoiY2o1dmloY2lvMDI4MTMycGh2d3lsZG4xMSJ9.Z0afj3yoC2i_KDtfDFNZqQ'
   }).addTo(mymap);
 }
 
 const init = function () {
   console.log("Script loaded!")
+  console.log('HAYO SILVER')
 
   getDomElements();
   setupMap();
