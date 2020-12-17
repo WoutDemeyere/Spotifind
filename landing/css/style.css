@@ -16,12 +16,11 @@
     /* --border-color: #1DB954; */
     --border-color: #B3B3B3;
 
-    
-
+    --global-color-alpha-x-transparent: #19d85c57;
 
     /* inputs */
     --input-background-color: white;
-    --button-background-color: #0DB949;
+    --button-background-color: #0DB949;         
     --button-background-color-hover: #21bb4f8c;
 
     /* fonts */
@@ -44,6 +43,10 @@
     --global-whitespace-lg: calc(var(--global-baseline) * 3);
     --global-whitespace-xl: calc(var(--global-whitespace) * 4);
     --global-whitespace-xxl: calc(var(--global-whitespace) * 5);
+
+    /* input */
+    --global-input-focus-boxShadowSpread: 0 0 0 3px;
+    --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
 }
 
 @media (min-width: 1280px) {
@@ -207,18 +210,18 @@ hr {
 }
 
 a {
-    color: #5051DB;
+    color: #15e95f;
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: #3E3EA8;
+    color: #15e95f;
 }
 
 a:hover,
 a:focus {
-    color: #3E3EA8;
+    color: #21bb4f8c;
 }
 
 canvas {
@@ -354,6 +357,10 @@ canvas {
     align-items: center;
 }
 
+.c-input:focus {
+    --border-color: var(--button-background-color); 
+}
+
 .c-form-field {
     margin: 0 !important;
     padding: calc(var(--global-font-size) * 0.625) calc(var(--global-font-size) * 1.25);
@@ -409,12 +416,14 @@ canvas {
 }
 
 .c-button {
+    margin: 3px 0;
     margin-left: 40px;
     font-size: calc(var(--global-font-size) * 1.25);
     padding: calc(var(--global-font-size) * 0.9) calc(var(--global-font-size) *1.25);
     border-radius: 25px;
     background-color: var(--button-background-color);
     max-width: 80px;
+    transition: background-color 0.2s var(--global-transitionTiming-alpha);
 }
 
 @media (min-width: 1280px) {
@@ -446,6 +455,15 @@ canvas {
 .c-button:hover {
     background-color: var(--button-background-color-hover);
 }
+
+.c-button:focus {
+    /* border: 1px solid var(--button-background-color-hover); */
+    box-shadow: var(--global-input-focus-boxShadowSpread) var(--global-input-focus-boxShadowColor);
+}
+
+
+
+
 
 /*
     Component: Mockup

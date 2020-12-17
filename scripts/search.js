@@ -74,6 +74,10 @@ const listenToFilters = function () {
             results.innerHTML = '';
             // search_main.addEventListener('click', toggleSearch);
         });
+
+        result.addEventListener('focus', function () {
+            result.style.backgroundColor = "var(--global-color-neutral-light);"
+        });
     }
 }
 

@@ -122,7 +122,6 @@ const setupMap = function () {
 
 const init = function () {
   console.log("Script loaded!")
-  console.log('HAYO SILVER')
 
   getDomElements();
   setupMap();

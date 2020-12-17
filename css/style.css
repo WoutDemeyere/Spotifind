@@ -21,7 +21,7 @@
     /* --global-transitionTiming-alpha-x:  500ms ease-out; */
 
     /* fonts */
-    --global-font-size: 100%;
+    --global-font-size: 1rem;
 
     /* search */
     --search-display: block;
@@ -42,7 +42,6 @@
     --global-baseline: 5px;
     --err-display: block;
 
-
 }
 
 .c-search__collapse {
@@ -57,6 +56,7 @@
 @media screen and (min-width: 320px) and (max-width: 767px) {
     :root {
         --search-main-width: 70%;
+        --global-font-size: 0.9rem;
     }
 }
 
@@ -139,28 +139,28 @@ h3 {
 }
 
 h1 {
-    font-size: 36px;
-    line-height: 48px;
+    font-size: calc(var(--global-font-size) * 2.25);
+    line-height: calc(var(--global-font-size) * 3);
     margin: 0 0 24px;
 }
 
 h2 {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: calc(var(--global-font-size) * 2);
+    line-height: calc(var(--global-font-size) * 2.5);
     margin: 0 0 24px;
 }
 
 h3 {
-    font-size: 26px;
-    line-height: 32px;
+    font-size: calc(var(--global-font-size) * 1.525);
+    line-height: calc(var(--global-font-size) * 1.875);
     margin: 0 0 24px;
 }
 
 h4,
 h5,
 h6 {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: calc(var(--global-font-size) * 1.25);
+    line-height: calc(var(--global-font-size) * 1.5);
     margin: 0 0 24px;
 }
 
@@ -184,25 +184,12 @@ li ol {
     margin-bottom: 0;
 }
 
-blockquote {
-    font-style: normal;
-    font-size: 23px;
-    line-height: 32px;
-    margin: 0 0 24px;
-}
 
 blockquote * {
     font-size: inherit;
     line-height: inherit;
 }
 
-figcaption {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    margin-top: 8px;
-    color: #3C3C42;
-}
 
 hr {
     border: 0;
@@ -315,7 +302,7 @@ canvas {
 }
 
 .c-error-button {
-    font-size: 16px;
+    font-size: var(--global-font-size);
     font-weight: 550;
     width: var(--err-button-width);
     border-radius: var(--border-radius);
@@ -335,7 +322,7 @@ canvas {
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .c-error {
-        font-size: 16px;
+        font-size: var(--global-font-size);
         width: 75%;
         margin-left:  12.5%;
     }
@@ -346,14 +333,14 @@ canvas {
     }
 
     .c-error-header {
-        font-size: 22px;
+        font-size: calc(var(--global-font-size) * 1.375);
         line-height: 20px;
     }
 
     .c-error-button {
         margin-left: 50%;
         width: 40%;
-        font-size: 14px;
+        font-size: calc(var(--global-font-size) * 0.875);
     }
 }
 
@@ -449,7 +436,7 @@ canvas {
 }
 
 .c-search {
-    font-size: 18px;
+    font-size: calc(var(--global-font-size) * 1.125);
     border: none;
     /* border: 1px solid grey; */
     border-radius: 18px;
@@ -502,7 +489,7 @@ canvas {
 }
 
 .c-result-name {
-    font-size: 18px;
+    font-size: calc(var(--global-font-size) * 1.125);
     padding-left: 10px;
     color: #B3B3B3;
 }
